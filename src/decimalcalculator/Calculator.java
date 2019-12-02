@@ -215,15 +215,15 @@ public class Calculator extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBackspace, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnBackspace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btn6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnMultiply, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnDivide, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
@@ -345,28 +345,32 @@ public class Calculator extends javax.swing.JFrame {
     
     //operator choosing
     public void operation() {
-        String ansStr;
-        
+        String ansStr;       
         double ans;
-        num2 = field.getValue();
-        switch (operator) {
-            case "+":
-                ans = num1 + num2;
-                break;
-            case "-":
-                ans = num1 - num2;
-                break;
-            case "*":
-                ans = num1 * num2;
-                break;
-            case "/":
-                ans = num1 / num2;
-                break;
-            default:
-                ans = num2;
-        }
+        
+        if ("".equals(field.getText())) {
+            
+        } else {
+            num2 = field.getValue();
+            switch (operator) {
+                case "+":
+                    ans = num1 + num2;
+                    break;
+                case "-":
+                    ans = num1 - num2;
+                    break;
+                case "*":
+                    ans = num1 * num2;
+                    break;
+                case "/":
+                    ans = num1 / num2;
+                    break;
+                default:
+                    ans = num2;
+            }
         ansStr = Double.toString(ans);
         field.setText(ansStr);
+       }
     }
     
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
