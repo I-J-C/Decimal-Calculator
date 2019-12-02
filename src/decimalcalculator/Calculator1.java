@@ -10,7 +10,9 @@ package decimalcalculator;
  * @author ilkac
  */
 public class Calculator1 extends javax.swing.JFrame {
-
+    double num1;
+    double num2;
+    String operator;
     /**
      * Creates new form Calculator1
      */
@@ -315,8 +317,13 @@ public class Calculator1 extends javax.swing.JFrame {
     public static void backspace(JDecimalField field) {
         //String fieldStr = field.toString();
         String str = field.getText();
+        String sub;
         int length = str.length();
-        String sub = str.substring(0,length - 1);
+        if (length > 0) {
+           sub = str.substring(0,length - 1);
+        } else {
+           sub = str;
+        }
         field.setText(sub);
     }
     
@@ -331,6 +338,8 @@ public class Calculator1 extends javax.swing.JFrame {
         String str = field.getText();
         field.setText(str + input);
     }
+    
+    //collect number
     
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         insert(field, 8);
@@ -349,7 +358,9 @@ public class Calculator1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+            num1 = field.getValue();
+            clear(field);
+            operator = "+";
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecimalActionPerformed
@@ -357,11 +368,15 @@ public class Calculator1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDecimalActionPerformed
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
-        // TODO add your handling code here:
+            num1 = field.getValue();
+            clear(field);
+            operator = "*";
     }//GEN-LAST:event_btnMultiplyActionPerformed
 
     private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivideActionPerformed
-        // TODO add your handling code here:
+            num1 = field.getValue();
+            clear(field);
+            operator = "/";
     }//GEN-LAST:event_btnDivideActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
@@ -381,7 +396,9 @@ public class Calculator1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
-        // TODO add your handling code here:
+            num1 = field.getValue();
+            clear(field);
+            operator = "-";
     }//GEN-LAST:event_btnSubtractActionPerformed
 
     private void btnBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackspaceActionPerformed

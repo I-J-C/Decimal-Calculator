@@ -18,5 +18,5 @@ public class JDecimalField extends JRegExpField {
     public double getValue() throws NumberFormatException {
         return Double.parseDouble(getText());
     }
-
+    
 }
