@@ -9,14 +9,14 @@ package decimalcalculator;
  *
  * @author ilkac
  */
-public class Calculator1 extends javax.swing.JFrame {
+public class Calculator extends javax.swing.JFrame {
     double num1;
     double num2;
     String operator;
     /**
      * Creates new form Calculator1
      */
-    public Calculator1() {
+    public Calculator() {
         initComponents();
     }
 
@@ -52,6 +52,9 @@ public class Calculator1 extends javax.swing.JFrame {
         field = new decimalcalculator.JDecimalField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculator");
+        setAlwaysOnTop(true);
+        setResizable(false);
 
         btn8.setText("8");
         btn8.addActionListener(new java.awt.event.ActionListener() {
@@ -296,6 +299,7 @@ public class Calculator1 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     //clear field
@@ -339,7 +343,31 @@ public class Calculator1 extends javax.swing.JFrame {
         field.setText(str + input);
     }
     
-    //collect number
+    //operator choosing
+    public void operation() {
+        String ansStr;
+        
+        double ans;
+        num2 = field.getValue();
+        switch (operator) {
+            case "+":
+                ans = num1 + num2;
+                break;
+            case "-":
+                ans = num1 - num2;
+                break;
+            case "*":
+                ans = num1 * num2;
+                break;
+            case "/":
+                ans = num1 / num2;
+                break;
+            default:
+                ans = num2;
+        }
+        ansStr = Double.toString(ans);
+        field.setText(ansStr);
+    }
     
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         insert(field, 8);
@@ -358,25 +386,25 @@ public class Calculator1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-            num1 = field.getValue();
-            clear(field);
-            operator = "+";
+        num1 = field.getValue();
+        clear(field);
+        operator = "+";
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecimalActionPerformed
-        insert(field, ".");
+            insert(field, ".");
     }//GEN-LAST:event_btnDecimalActionPerformed
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
-            num1 = field.getValue();
-            clear(field);
-            operator = "*";
+        num1 = field.getValue();
+        clear(field);
+        operator = "*";
     }//GEN-LAST:event_btnMultiplyActionPerformed
 
     private void btnDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivideActionPerformed
-            num1 = field.getValue();
-            clear(field);
-            operator = "/";
+        num1 = field.getValue();
+        clear(field);
+        operator = "/";
     }//GEN-LAST:event_btnDivideActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
@@ -396,9 +424,9 @@ public class Calculator1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btnSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtractActionPerformed
-            num1 = field.getValue();
-            clear(field);
-            operator = "-";
+        num1 = field.getValue();
+        clear(field);
+        operator = "-";
     }//GEN-LAST:event_btnSubtractActionPerformed
 
     private void btnBackspaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackspaceActionPerformed
@@ -414,7 +442,7 @@ public class Calculator1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
-        // TODO add your handling code here:
+        operation();
     }//GEN-LAST:event_btnEqualsActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
@@ -442,20 +470,21 @@ public class Calculator1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Calculator1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Calculator1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Calculator1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Calculator1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Calculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Calculator1().setVisible(true);
+                new Calculator().setVisible(true);
             }
         });
     }
