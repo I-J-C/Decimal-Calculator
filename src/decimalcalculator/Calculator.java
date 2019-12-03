@@ -331,6 +331,7 @@ public class Calculator extends javax.swing.JFrame {
         field.setText(sub);
     }
     
+    //insert number
     public static void insert(JDecimalField field, int num) {
         String str = field.getText();
         String numStr = Integer.toString(num);
@@ -396,7 +397,7 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDecimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDecimalActionPerformed
-            insert(field, ".");
+        insert(field, ".");
     }//GEN-LAST:event_btnDecimalActionPerformed
 
     private void btnMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplyActionPerformed
